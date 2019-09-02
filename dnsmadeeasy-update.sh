@@ -26,7 +26,7 @@ DMEID=
 
 # Obtain current ip address
 #IPADDR=`ifconfig eth0 | grep inet | awk '{print $2}' | awk -F : '{print $2}'`
-IPADDR=`curl  http://www.dnsmadeeasy.com/myip.jsp`
+IPADDR=`curl  http://myip.dnsmadeeasy.com`
 
 if wget -q -O /proc/self/fd/1 https://cp.dnsmadeeasy.com/servlet/updateip?username=$DMEUSER\&password=$DMEPASS\&id=$DMEID\&ip=$IPADDR | grep success > /dev/null; then
 logger -t DNS-Made-Easy -s "DNS Record Updated Successfully"
